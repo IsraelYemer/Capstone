@@ -54,7 +54,8 @@ public class VideoManagmentView extends JFrame{
 				},
 				new String[] {
 						"Title",
-						"Category"
+						"Category",
+						"Url"
 				}
 		));
 		scrollPane.setViewportView(table);

@@ -21,7 +21,8 @@ public class VideoC implements C<VideoModel>{
 				String title = rs.getString(2);
 				String image =  rs.getString(3);
 				String category =  rs.getString(4);
-				video = new VideoModel(id,title,image,category);
+				String url = rs.getString(5);
+				video = new VideoModel(id,title,image,category,url);
 			}
 		} catch (SQLException e) {
 			
@@ -41,7 +42,8 @@ public class VideoC implements C<VideoModel>{
 				String title = rs.getString(2);
 				String image =  rs.getString(3);
 				String category =  rs.getString(4);
-				VideoModel video = new VideoModel(id,title,image,category);
+				String url =  rs.getString(5);
+				VideoModel video = new VideoModel(id,title,image,category,url);
 				videos.add(video);
 			}
 		} catch (SQLException e) {
@@ -54,15 +56,13 @@ public class VideoC implements C<VideoModel>{
 	
 	@Override
 	public void save(VideoModel t) {
-		ResultSet rs = getDb().query("INSERT INTO public.video (title,image,category) VALUES ("
-				+"'"+t.getTitle()+"'::character varying, '"+t.getImage()+"'::character varying,'"+t.getCategory()+"'::character varying)"
-				+ "returning id;");
+		ResultSet rs = getDb().query("INSERT INTO public.video (title,image,category,url) VALUES (" +"'"+t.getTitle()+"'::character varying, '"+t.getImage()+"'::character varying,'"+t.getCategory()+"'::character varying,'"+t.getUrl()+"'::character varying)" + "returning id;");
 
 	}
 
 	@Override
 	public void update(VideoModel t) {
-		ResultSet rs = getDb().query("UPDATE public.video SET category = '"+t.getCategory()+"'::character varying," + "image = '"+t.getImage()+"'::character varying," + "title = '"+t.getTitle()+"'::character varying WHERE id = "+ t.getId()+";");
+		ResultSet rs = getDb().query("UPDATE public.video SET category = '"+t.getCategory()+"'::character varying," + "image = '"+t.getImage()+"'::character varying," + "title = '"+t.getTitle()+"'::character varying," + "url = '"+t.getUrl()+"'::character varying WHERE id = "+ t.getId()+";");
 		
 	}
 

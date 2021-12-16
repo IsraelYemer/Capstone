@@ -49,6 +49,7 @@ public class ControllerNewVideo implements ActionListener, MouseListener {
 			String title = getView().getTxtName().getText();
 			String pathImage = ".\\assets\\img\\video"+ id +".jpg";
 			String category = getView().getComboCategory().getSelectedItem().toString();
+			String url = getView().getUrl().getText();
 			
 			Path copy = Paths.get(pathImage);
 			/* Get the exact image from the absolute pathname we put for pathImage*/
@@ -65,7 +66,7 @@ public class ControllerNewVideo implements ActionListener, MouseListener {
 			}
 			
 			/*Add new entry with VideoModel structure*/
-			getModel().save(new VideoModel(id,title,pathImage,category));
+			getModel().save(new VideoModel(id,title,pathImage,category,url));
 			
 		}
 		

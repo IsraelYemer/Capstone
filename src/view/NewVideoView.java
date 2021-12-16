@@ -28,6 +28,7 @@ import controller.ControllerNewVideo;
 public class NewVideoView extends JFrame{
 	private JPanel contentPane;
 	private JTextField txtName;
+	private JTextField url;
 	private JComboBox comboCategory;
 	private JButton btnAccept;
 	private JButton btnCancel;
@@ -58,6 +59,18 @@ public class NewVideoView extends JFrame{
 		txtName.setBounds(120, 57, 170, 20);
 		contentPane.add(txtName);
 		txtName.setColumns(10);
+
+		/*JLabel set with "Url" text*/
+		JLabel lblNewLabel_0 = new JLabel("URL");
+		lblNewLabel_0.setFont(new Font("SansSerif", Font.PLAIN, 12));
+		lblNewLabel_0.setBounds(23, 85, 46, 14);
+		contentPane.add(lblNewLabel_0);
+
+		/*text field to set value of "Url"*/
+		url = new JTextField();
+		url.setBounds(120, 80, 170, 20);
+		contentPane.add(url);
+		url.setColumns(10);
 
 
 		/*JLabel set with "New video" text*/
@@ -124,9 +137,16 @@ public class NewVideoView extends JFrame{
 	public JTextField getTxtName() {
 		return txtName;
 	}
+	public JTextField getUrl() {
+		return url;
+	}
 
 	public void setTxtName(JTextField txtName) {
 		this.txtName = txtName;
+	}
+
+	public void setUrl(JTextField url) {
+		this.url = url;
 	}
 
 	public JComboBox getComboCategory() {
